@@ -9,8 +9,8 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 </head>
 <body >
-<div class="cursor-dot" id="cursorDot" style="transform: translate(260px, 422px) translate(-50%, -50%);"></div>
-<div class="cursor-ring" id="cursorRing" style="transform: translate(260px, 422px) translate(-50%, -50%);"></div>
+<div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+<div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
    <header>
     <div class="nav-bar">
         <div class="inner-nav-bar">
@@ -39,7 +39,13 @@
      <Section id="Hero">
     <div class="hero-section">
         <div class="hero-section-left">
-            <p> <span class="dot"></span>Available for Product Design opportunities</p>
+            <div class="hero-status">
+                <p class="hero-availability"><span class="dot"></span>Available for Product Design opportunities</p>
+                <div class="hero-location">
+                    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M13.5 6.8c0 4.3-5.5 7.7-5.5 7.7s-5.5-3.4-5.5-7.7a5.5 5.5 0 0 1 11 0Z"></path><circle cx="8" cy="6.8" r="2"></circle></svg>
+                    Bangalore, India
+                </div>
+            </div>
             <h1 class="hero-title">
 Designing enterprise products
 that <span class="text-gradient">simplify complexity.</span></h1>
@@ -49,6 +55,7 @@ that <span class="text-gradient">simplify complexity.</span></h1>
     <a class="view-Portfolio" href="https://www.behance.net/shradharaj91" target="_blank" style="text-decoration: none;">View Portfolio</a>
     <a class="download-resume">Download Resume <i class="fa-solid fa-download"></i>
     </a>
+
 </div>
 </div>
         <div class="hero-section-right">
@@ -419,12 +426,11 @@ that <span class="text-gradient">simplify complexity.</span></h1>
 
 
             </div>
-                
-                    
-          
-                
 </div>
 </section>
+
+
+
 
 <button class="back-to-top" type="button" aria-label="Back to top">
     <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>

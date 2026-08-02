@@ -13,13 +13,15 @@ body,html {
 .cursor-dot {
     width: 6px;
     height: 6px;
-    background: var(--secondary);
+    background: #a788ff;
+    box-shadow: 0 0 12px rgba(124, 58, 237, .9);
 }
 .cursor-ring {
-    width: 34px;
-    height: 34px;
-    border: 1px solid var(--border-strong);
-    transition: width .25s var(--ease), height .25s var(--ease), border-color .25s var(--ease), background .25s var(--ease);
+    width: 32px;
+    height: 32px;
+    border: 1px solid rgba(167, 136, 255, .8);
+    background: rgba(124, 58, 237, .07);
+    transition: width .22s ease, height .22s ease, border-color .22s ease, background .22s ease, opacity .2s ease;
 }
 
 .cursor-dot, .cursor-ring {
@@ -31,12 +33,35 @@ body,html {
     border-radius: 50%;
     transform: translate(-50%, -50%);
     will-change: transform;
+    opacity: 0;
+}
+
+.cursor-dot.is-visible,
+.cursor-ring.is-visible { opacity: 1; }
+
+.cursor-ring.is-hovering {
+    width: 48px;
+    height: 48px;
+    border-color: #fff;
+    background: rgba(124, 58, 237, .18);
+}
+
+@media (pointer: coarse) {
+    .cursor-dot, .cursor-ring { display: none; }
 }
 /* navigation bar */
 
+header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    width: 100%;
+}
+
 .nav-bar {
     height: 80px;
-    background-color: #08080D;
+    background-color: transparent;
     /* display: flex;
     justify-content: center;
     align-items: center; */
@@ -58,8 +83,23 @@ body,html {
     align-items: center;
     gap: 10px;
 
-
 }
+
+.hero-location {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 13.5px;
+    color: #9a9cac;
+    white-space: nowrap;
+}
+
+.hero-location svg {
+    width: 14px;
+    height: 14px;
+}
+
+
 .nav-ops {
     height: 50px;
     width: 48%;
@@ -139,11 +179,46 @@ body,html {
     background-color: #08080D;
     height: 600px;
     width: 100%;
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
     
     display: flex;
     /* justify-content: center;
     align-items: center; */
     padding-left: 50px;
+}
+
+/* Soft purple-blue ambient patches inspired by the home-section reference. */
+.hero-section::before,
+.hero-section::after {
+    content: "";
+    position: absolute;
+    z-index: 0;
+    width: 620px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    pointer-events: none;
+    filter: blur(18px);
+    opacity: 0.9;
+}
+
+.hero-section::before {
+    left: -315px;
+    top: -245px;
+    background: radial-gradient(circle, rgba(124, 58, 237, 0.56) 0%, rgba(79, 70, 229, 0.28) 43%, transparent 73%);
+}
+
+.hero-section::after {
+    right: -290px;
+    top: -100px;
+    background: radial-gradient(circle, rgba(75, 119, 255, 0.48) 0%, rgba(70, 91, 229, 0.24) 45%, transparent 73%);
+}
+
+.hero-section-left,
+.hero-section-right {
+    position: relative;
+    z-index: 1;
 }
 
 .hero-section-left {
@@ -158,7 +233,14 @@ body,html {
     padding-left: 50px;
 }
 
-.hero-section p {
+.hero-status {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    flex-wrap: wrap;
+}
+
+.hero-availability {
     width: fit-content;
     font-size: 0.85rem;
     background-color: hsla(0, 0%, 100%, 0.043);

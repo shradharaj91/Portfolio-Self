@@ -1,6 +1,29 @@
 const careerSection = document.querySelector('#Career');
 const timelineProgress = document.querySelector('.timeline-progress');
 const backToTopButton = document.querySelector('.back-to-top');
+const cursorDot = document.querySelector('#cursorDot');
+const cursorRing = document.querySelector('#cursorRing');
+
+if (cursorDot && cursorRing && window.matchMedia('(pointer: fine)').matches) {
+  const moveCursor = ({ clientX, clientY }) => {
+    const position = `translate(${clientX}px, ${clientY}px) translate(-50%, -50%)`;
+    cursorDot.style.transform = position;
+    cursorRing.style.transform = position;
+    cursorDot.classList.add('is-visible');
+    cursorRing.classList.add('is-visible');
+  };
+
+  document.addEventListener('pointermove', moveCursor);
+  document.documentElement.addEventListener('pointerleave', () => {
+    cursorDot.classList.remove('is-visible');
+    cursorRing.classList.remove('is-visible');
+  });
+
+  document.querySelectorAll('a, button, .nav-button').forEach((element) => {
+    element.addEventListener('pointerenter', () => cursorRing.classList.add('is-hovering'));
+    element.addEventListener('pointerleave', () => cursorRing.classList.remove('is-hovering'));
+  });
+}
 
 function updateCareerTimeline() {
   if (!careerSection || !timelineProgress) return;
