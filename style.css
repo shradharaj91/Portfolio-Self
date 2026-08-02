@@ -13,13 +13,15 @@ body,html {
 .cursor-dot {
     width: 6px;
     height: 6px;
-    background: var(--secondary);
+    background: #a788ff;
+    box-shadow: 0 0 12px rgba(124, 58, 237, .9);
 }
 .cursor-ring {
-    width: 34px;
-    height: 34px;
-    border: 1px solid var(--border-strong);
-    transition: width .25s var(--ease), height .25s var(--ease), border-color .25s var(--ease), background .25s var(--ease);
+    width: 32px;
+    height: 32px;
+    border: 1px solid rgba(167, 136, 255, .8);
+    background: rgba(124, 58, 237, .07);
+    transition: width .22s ease, height .22s ease, border-color .22s ease, background .22s ease, opacity .2s ease;
 }
 
 .cursor-dot, .cursor-ring {
@@ -31,6 +33,21 @@ body,html {
     border-radius: 50%;
     transform: translate(-50%, -50%);
     will-change: transform;
+    opacity: 0;
+}
+
+.cursor-dot.is-visible,
+.cursor-ring.is-visible { opacity: 1; }
+
+.cursor-ring.is-hovering {
+    width: 48px;
+    height: 48px;
+    border-color: #fff;
+    background: rgba(124, 58, 237, .18);
+}
+
+@media (pointer: coarse) {
+    .cursor-dot, .cursor-ring { display: none; }
 }
 /* navigation bar */
 
