@@ -788,6 +788,11 @@ header {
     display: flex;
     justify-content: space-between;
 }
+.career-role-divider {
+    height: 1px;
+    margin: 32px 0;
+    background: rgba(255, 255, 255, .14);
+}
  .duration {
     /* right: 38px;
     position: absolute; */
