@@ -8,18 +8,20 @@
 }
 body,html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
+    overflow-x: clip;
 }
 
 .cursor-dot {
     width: 6px;
     height: 6px;
-    background: #a788ff;
+    background: #5b8cff;
     box-shadow: 0 0 12px rgba(124, 58, 237, .9);
 }
 .cursor-ring {
     width: 32px;
     height: 32px;
-    border: 1px solid rgba(167, 136, 255, .8);
+    border: 1px solid rgba(168, 136, 255, 0.127);
     background: rgba(124, 58, 237, .07);
     transition: width .22s ease, height .22s ease, border-color .22s ease, background .22s ease, opacity .2s ease;
 }
@@ -42,7 +44,7 @@ body,html {
 .cursor-ring.is-hovering {
     width: 48px;
     height: 48px;
-    border-color: #fff;
+    border-color: #5b8cff;
     background: rgba(124, 58, 237, .18);
 }
 
