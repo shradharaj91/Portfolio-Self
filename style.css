@@ -10,7 +10,9 @@ body,html {
     scroll-behavior: smooth;
     overflow-x: hidden;
     overflow-x: clip;
-    background-color: #08080D;
+    /* Keep scrolling within the document once its first or last section is reached. */
+    overscroll-behavior-y: none;
+    /* background-color: #08080D; */
 }
 
 .cursor-dot {
@@ -241,21 +243,21 @@ header {
 .hero-status {
     display: flex;
     align-items: center;
-    gap: 18px;
+    gap: 10px;
     flex-wrap: wrap;
 }
 
 .hero-availability {
     width: fit-content;
     font-size: 0.85rem;
-    background-color: hsla(0, 0%, 100%, 0.043);
-    box-shadow: 0 10px 40px -14px rgba(0, 0, 0, .35);
+    /* background-color: hsla(0, 0%, 100%, 0.043); */
+    /* box-shadow: 0 10px 40px -14px rgba(0, 0, 0, .35); */
     color: #9a9cac;
-    padding: 10px 16px;
+    /* padding: 10px 16px; */
     /* margin-left: 208px; */
     display: inline;
-    border-radius: 100px;
-    border: 1.5px solid rgba(255, 255, 255, 0.2);
+    /* border-radius: 100px; */
+    /* border: 1.5px solid rgba(255, 255, 255, 0.2); */
     display: inline-flex;
     align-items: center;
     gap: 8px;
@@ -659,14 +661,14 @@ header {
 
 }
 .approach-box {
-    height: 330px;
-    width: 23%;
+    height: auto;
+    width: auto;
     background-color: hsla(0, 0%, 100%, 0.043);
     border: 1.5px solid rgba(255, 255, 255, 0.2);
     box-shadow: 0 8px 20px rgb(0, 0, 0);
     border-radius: 35px;
     margin: 0;
-    padding: 40px;
+    padding: 35px;
 }
 .approach-box:hover {
     transform: translateY(-3px);
@@ -690,7 +692,7 @@ header {
 }
 
 .approach-box-title {
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight: 500;
     padding-top: 15px;
     padding-bottom: 10px;
@@ -832,9 +834,15 @@ header {
     text-decoration: none;
   }
   .Job-role a:hover {
-    /* font-weight: 600; */
-    transform: translateX(-3);
-    letter-spacing: 0.10rem ;
+
+    font-weight: 600;
+    transform: translateY(-3px);
+    background: linear-gradient(100deg, #7C3AED, #4F46E5);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    /* transform: translateY(-10px); */
+    /* letter-spacing: 0.10rem ; */
     transition: transform 0.3s ease-in-out;
   }
  
@@ -847,6 +855,23 @@ header {
     background-color: #161623;
     margin-right: 0;
   }
+
+.Domain a {
+    text-decoration: none;
+}
+
+.Domain a:hover {
+    font-weight: 600;
+    transform: translateY(-3px);
+    background: linear-gradient(100deg, #7C3AED, #4F46E5);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    /* transform: translateY(-10px); */
+    /* letter-spacing: 0.10rem ; */
+    transition: transform 0.3s ease-in-out;
+  }
+  
   .career-box-list {
     padding-top: 20px;
     font-size: 0.90rem;
@@ -956,7 +981,7 @@ color: #9898c4;
 }
 
 .process-box-title {
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-weight: 500;
     padding-bottom: 10px;
 }
@@ -1147,7 +1172,7 @@ height: auto;
 
 .AI-box-title {
     margin-top: 20px;
-font-size: 1.1rem;
+font-size: 1rem;
     font-weight: 500;
     padding-bottom: 10px;
 }
@@ -1398,7 +1423,8 @@ label {
     text-decoration: none;
 }
 .social-items:hover {
-    transform: translateX(10px);
+    transform: translateX(15px);
+    /* transform: translateY(-8px); */
     transition: all 0.3s ease-in-out;
     cursor: pointer;
 }
