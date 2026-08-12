@@ -6,19 +6,11 @@
     box-sizing: border-box;
     /* overflow-x: hidden; */
 }
-html {
+body,html {
     scroll-behavior: smooth;
     overflow-x: hidden;
     overflow-x: clip;
-    min-height: 100%;
-    background: #08080D !important;
-    overscroll-behavior-y: none;
-}
-
-body {
-    min-height: 100vh;
-    background: #08080D !important;
-    overscroll-behavior-y: none;
+    background-color: #08080D;
 }
 
 .cursor-dot {
@@ -1450,5 +1442,4 @@ label {
         transform: translateY(-3px);
         transition: all 0.3s ease-in-out;
     }
-
 
