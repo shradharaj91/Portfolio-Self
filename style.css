@@ -105,7 +105,7 @@ header {
 
 .nav-ops {
     height: 50px;
-    width: 45%;
+    width: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -651,8 +651,9 @@ header {
 
 }
 .approach-detail {
-    display: flex;
-        gap: 24px;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 24px;
     /* justify-content: center;
     justify-content: space-evenly ; */
 
@@ -660,7 +661,7 @@ header {
 }
 .approach-box {
     height: 330px;
-    width: 23%;
+    width: auto;
     background-color: hsla(0, 0%, 100%, 0.043);
     border: 1.5px solid rgba(255, 255, 255, 0.2);
     box-shadow: 0 8px 20px rgb(0, 0, 0);
@@ -694,6 +695,7 @@ header {
     font-weight: 500;
     padding-top: 15px;
     padding-bottom: 10px;
+    white-space: nowrap;
 }
 .approach-box-desc p {
     padding-top: 10px;
@@ -702,6 +704,15 @@ header {
     line-height: 1.4rem;
     color: #9a9cac;
     padding-bottom: 10px;
+}
+
+@media (max-width: 900px) {
+    .approach-detail { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .approach-box-title { white-space: normal; }
+}
+
+@media (max-width: 560px) {
+    .approach-detail { grid-template-columns: 1fr; }
 }
 
 /* Career Section */
@@ -1442,4 +1453,3 @@ label {
         transform: translateY(-3px);
         transition: all 0.3s ease-in-out;
     }
-
