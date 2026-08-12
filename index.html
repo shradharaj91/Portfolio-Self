@@ -564,27 +564,33 @@ that <span class="text-gradient">simplify complexity.</span></h1>
             <div class="contact-caption">CONTACT</div>
             <div class="contact-title">Let's build products people actually enjoy using.</div>
             <div class="contact-detail">
-                <div class="contact-box">
-                    <label for="name">Full Name</label> 
-                    <input type="text" class="textbox" placeholder="Enter your name">
+                <form class="contact-box" id="contact-form" action="https://formsubmit.co/ajax/shradharajsinha@gmail.com" method="POST">
+                    <input type="hidden" name="_subject" value="New portfolio contact message">
+                    <input type="hidden" name="_template" value="table">
+                    <label for="name">Full Name</label>
+                    <input id="name" name="name" type="text" class="textbox" placeholder="Enter your name" autocomplete="name" required>
                     <label for="email">Email</label>
-                    <input type="email" class="textbox" placeholder="example@mail.com">
+                    <input id="email" name="email" type="email" class="textbox" placeholder="example@mail.com" autocomplete="email" required>
                     <label for="message">Message</label>
-                    <textarea class="textarea" placeholder="Type your message here..."></textarea>
-                    <div class="contact-button">Send Message</div>
-                </div>
+                    <textarea id="message" name="message" class="textarea" placeholder="Type your message here..." required></textarea>
+                    <button class="contact-button" type="submit">Send Message <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></button>
+                    <p class="contact-status" id="contact-status" role="status" aria-live="polite"></p>
+                </form>
 
                 <div class="social-links">
                     <div class="social-items">
-                        <a href="mailto:example@gmail.com">Email</a> <i class="fa-solid fa-envelope"></i>
+                        <a href="mailto:shradharajsinha@gmail.com">shradharajsinha@gmail.com</a> <i class="fa-solid fa-envelope"></i>
                     </div> 
                     <div class="social-items">
                         <a href="https://www.linkedin.com/in/shradha-raj-477884193/" target="_blank">LinkedIn</a> <i class="fa-brands fa-linkedin"></i>
                     </div> 
                     <div class="social-items">
                         <a href="https://www.behance.net/shradharaj91" target="_blank">Behance</a>  <i class="fa-brands fa-behance"></i>
-                    </div> 
+                    </div>
+                </div>
             </div>
+        </div>
+    </div>
 </section>
 
 <footer>
@@ -597,10 +603,6 @@ that <span class="text-gradient">simplify complexity.</span></h1>
         </div>
     </div>
 </footer>
-<!-- <button class="back-to-top" type="button" aria-label="Back to top">
-    <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
-    <span>Back to top</span> -->
-</button>
    
 <script src="Script.js"></script>
 </body>

@@ -3,6 +3,14 @@ const timelineProgress = document.querySelector('.timeline-progress');
 const backToTopButton = document.querySelector('.back-to-top');
 const cursorDot = document.querySelector('#cursorDot');
 const cursorRing = document.querySelector('#cursorRing');
+const contactForm = document.querySelector('#contact-form');
+const contactStatus = document.querySelector('#contact-status');
+
+window.addEventListener('load', () => {
+  window.setTimeout(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+  }, 100);
+});
 
 if (cursorDot && cursorRing && window.matchMedia('(pointer: fine)').matches) {
   const moveCursor = ({ clientX, clientY }) => {
@@ -47,6 +55,43 @@ function updateScrollEffects() {
 
 backToTopButton?.addEventListener('click', () => {
   window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+contactForm?.addEventListener('submit', async (event) => {
+  event.preventDefault();
+
+  const submitButton = contactForm.querySelector('button[type="submit"]');
+  const defaultButtonText = submitButton.innerHTML;
+  submitButton.disabled = true;
+  submitButton.textContent = 'Sending...';
+  contactStatus.textContent = '';
+  contactStatus.classList.remove('is-error');
+
+  try {
+    const response = await fetch(contactForm.action, {
+      method: 'POST',
+      body: new FormData(contactForm),
+      headers: { Accept: 'application/json' },
+    });
+
+    const result = await response.json().catch(() => ({}));
+    if (!response.ok || result.success === 'false' || result.success === false) {
+      throw new Error(result.message || 'Form service rejected the request.');
+    }
+
+    contactForm.reset();
+    contactStatus.textContent = 'Message sent successfully.';
+    alert('Message sent successfully.');
+  } catch (error) {
+    const message = error instanceof Error ? error.message : '';
+    contactStatus.textContent = message.includes('web server')
+      ? 'This form needs to be opened from a hosted website, not directly as a local HTML file.'
+      : 'Unable to send your message right now. Please try again shortly.';
+    contactStatus.classList.add('is-error');
+  } finally {
+    submitButton.disabled = false;
+    submitButton.innerHTML = defaultButtonText;
+  }
 });
 
 window.addEventListener('scroll', updateScrollEffects, { passive: true });
